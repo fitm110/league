@@ -68,6 +68,7 @@ public class MatrixOperationServiceImpl implements MatrixOperationService {
 
     @Override
     public String multiply(List<CSVRecord> records) {
+        if (records.isEmpty()) return String.valueOf(0);
         int product = 1;
         for (CSVRecord record : records) {
             for (int i=0; i<record.size(); i++) {

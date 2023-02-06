@@ -14,4 +14,9 @@ public class ControllerAdviceErrorHandlers {
     public ResponseEntity<String> handleIOException(IOException ex, WebRequest webRequest) {
         return ResponseEntity.of(Optional.of("error " + ex.getMessage()));
     }
+
+    @ExceptionHandler(value = {RuntimeException.class})
+    public ResponseEntity<String> handleRuntimeException(RuntimeException ex, WebRequest webRequest) {
+        return ResponseEntity.of(Optional.of("error " + ex + ".\n" + "errorMsg:" + ex.getMessage()));
+    }
 }
